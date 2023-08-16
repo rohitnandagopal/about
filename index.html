@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Nature</title>
+<style>
+    #button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 60px;
+      font-size: 24px;
+      background-color: #000000;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #collage {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000000;
+      z-index: auto;
+      overflow: auto;
+    }
+
+    .collage-table {
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    .collage-table td {
+      padding: 0;
+      width: 33.33%; 
+      position: relative;
+      transition: transform 0.5s;
+    }
+
+    .collage-table td:hover {
+      transform: scale(1.1); 
+    }
+
+    .collage-item {
+      position: relative;
+      width: 100%;
+      padding-top: 100%; 
+    }
+
+    .collage-item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #audio {
+      display: none;
+    }
+
+    @font-face {
+      font-family: abel;
+      src: url(Abel-Regular.ttf);
+    }
+</style>
+</head>
+<body style="background-image: url(background.jpg); background-size: cover;">
+
+  <button id="button" onclick="showCollage()">EXPLORE</button>
+  <div id="collage">
+    <table class="collage-table">
+      <tr>
+        <td><div class="collage-item"><img src="image1.jpg" alt="Image 1"></div></td>
+        <td><div class="collage-item"><img src="image2.jpg" alt="Image 2"></div></td>
+        <td><div class="collage-item"><img src="image3.jpg" alt="Image 3"></div></td>
+      </tr>
+      <tr>
+        <td><div class="collage-item"><img src="image4.jpg" alt="Image 4"></div></td>
+        <td><div class="collage-item"><img src="image5.jpg" alt="Image 5" onclick="playAudioTrack()"></div></td>
+        <td><div class="collage-item"><img src="image6.jpg" alt="Image 6"></div></td>
+      </tr>
+      <tr>
+        <td><div class="collage-item"><img src="image7.jpg" alt="Image 7"></div></td>
+        <td><div class="collage-item"><img src="image8.jpg" alt="Image 8"></div></td>
+        <td><div class="collage-item"><img src="image9.jpg" alt="Image 9"></div></td>
+      </tr>
+    </table>
+  </div>
+
+  <audio id="audio" controls>
+    <source src="audio1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function showCollage() {
+      var collage = document.getElementById("collage");
+      collage.style.display = "block";
+    }
+
+    function playAudioTrack() {
+      var audio = document.getElementById("audio");
+      audio.style.display = "block";
+      audio.play();
+    }
+  </script>
+</body>
+</html>
